@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <title>简历</title>
+</head>
+<body>
+  <style id="style"></style>
+  <div id="html" style="word-break: break-all;"></div> <!--到了页面最后会自动折行-->
+  <div id="wrapper">
+    <div id="div1"></div>
+  </div>
+  <style>/*不想让别人看见的样式*/  
+    *{
+      margin:0;
+      padding:0;
+      box-sizing: border-box;
+    }
+    *::before{
+      box-sizing: border-box;
+    }
+    *::after{
+      box-sizing:border-box;
+    }
+
+    #div1{
+      position:fixed;  /*定位fixed  固定在页面右上角 滚动条滚动也能不移动   */
+      left:50%;
+      transform: translateX(-50%);
+      top:20px;
+
+    }
+    #div1::before{   /*利用伪元素去画中间的两个球  */
+      content:'';
+      display:block;  /*伪元素是inline-block的，改成block  */
+      position: absolute;
+    }
+    #div1::after{
+      content:'';
+      display:block;
+      position: absolute;
+    }
+    @media(max-width:500px){  /*界面的最大宽度是500px 默认为是在手机上查看 */
+      #html{
+        height:50vh;
+        overflow: auto;
+      }
+      #wrapper{
+        
+        height:50vh;
+      }
+      #div1{
+        position:relative; /*上面加定位了 现在要消除  */
+        top:50%;
+        right:50%;
+        transform: translate(-50%,-50%);
+      }
+
+    }</style>
+  <script src="/main.1f19ae8e.js"></script>
+</body>
+</html>
